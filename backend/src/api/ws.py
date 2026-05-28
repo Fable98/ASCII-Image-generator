@@ -67,6 +67,7 @@ async def _process_frame(
         # Update session state
         state.latest_ascii = ascii_text
         state.latest_html = html_colored
+        state.latest_frame = raw
         state.frames_processed += 1
         state.last_frame_at = __import__("datetime").datetime.now(
             __import__("datetime").timezone.utc
