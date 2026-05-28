@@ -39,6 +39,7 @@ class SessionState:
         # Latest ASCII output for snapshot
         self.latest_ascii: Optional[str] = None
         self.latest_html: Optional[str] = None
+        self.latest_frame: Optional[bytes] = None
 
         # Backpressure
         self.frame_queue: asyncio.Queue = asyncio.Queue(maxsize=2)
