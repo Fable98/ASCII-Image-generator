@@ -128,7 +128,7 @@ async def ws_stream(
     # ── Auth (HTTP upgrade phase) ─────────────────────────────────────────────
     # In dev mode (jwt_secret == default) we skip auth for convenience.
     # In production, remove this bypass.
-    if settings.jwt_secret != "change-me-in-production-please" or token:
+    if (settings.jwt_secret != "change-me-in-production-please" and not settings.debug) or token:
         try:
             await verify_ws_token(token=token, settings=settings)
         except Exception:
